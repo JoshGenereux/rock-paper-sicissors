@@ -61,25 +61,23 @@ function game() {
 
     if (result.includes('win')) {
       playerWins++;
-    }
-    if (result.includes('lose')) {
+    } else if (result.includes('lose')) {
       computerWins++;
-    }
-
-    if (playerWins >= 3) {
-      return alert('You Won 3 out of 5 games!');
-    }
-    if (computerWins >= 3) {
-      return alert('Sorry, you lost 3 out of 5 games...');
     }
 
     if (result.includes('Tie')) {
       i--;
-      console.log(i);
     } else {
       gameCount++;
     }
-    console.log(gameCount);
+    console.log(`Player = ${playerWins}, Computer = ${computerWins}`);
+    console.log(`Game ${gameCount}`);
+  }
+
+  if (playerWins > computerWins) {
+    return alert('You Won! 3 out of 5 games.');
+  } else {
+    return alert('You lost... 3 out of 5 games');
   }
 }
 
