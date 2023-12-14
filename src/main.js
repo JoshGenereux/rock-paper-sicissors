@@ -50,4 +50,37 @@ function rockPaperScissors(player, computer) {
   }
 }
 
-console.log(rockPaperScissors('scissors', getComputerChoice()));
+function game() {
+  let gameCount = 0;
+  let playerWins = 0;
+  let computerWins = 0;
+
+  for (let i = 0; i < 5; i++) {
+    let result = rockPaperScissors(prompt(), getComputerChoice());
+    console.log(result);
+
+    if (result.includes('win')) {
+      playerWins++;
+    }
+    if (result.includes('lose')) {
+      computerWins++;
+    }
+
+    if (playerWins >= 3) {
+      return alert('You Won 3 out of 5 games!');
+    }
+    if (computerWins >= 3) {
+      return alert('Sorry, you lost 3 out of 5 games...');
+    }
+
+    if (result.includes('Tie')) {
+      i--;
+      console.log(i);
+    } else {
+      gameCount++;
+    }
+    console.log(gameCount);
+  }
+}
+
+game();
